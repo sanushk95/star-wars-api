@@ -1,0 +1,240 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    background-image: url('../images/background2.jpg');
+    color: #f3f3f3;
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    color: #f3f3f3;
+}
+
+/*ul {
+    list-style: none;
+}*/
+
+body {
+    font-family: 'Fugaz One', Helvetica, sans-serif;
+    padding: 40px 20px;
+}
+
+body::-webkit-scrollbar {
+    width: 1em;
+}
+
+body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+}
+
+.outDiv {
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+    transition: .5s;
+}
+
+.head {
+    padding-bottom: 20px;
+}
+
+.head h1 {
+    font-family: 'Alfa Slab One';
+    text-align: center;
+    /*font-size: 4vw;*/
+    font-size:calc(32px + 2.5vw);
+    letter-spacing: 5px;
+    font-weight: 500;
+}
+
+#loading {
+    transition: .5s;
+}
+
+#container {
+    display: flex;
+    /*background-color: beige;*/
+    z-index: 0;
+}
+
+.loading {
+    transition: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+#characterList, #MovieDetails {
+    width: 50%;
+    box-sizing: border-box;
+    padding: 20px;
+    height: 650px;
+}
+
+#characterList {
+    background-color: #333;
+    font-size: calc(24px + 0.4vw);;
+    z-index: 3;
+
+    list-style-image: url('https://img.icons8.com/color/30/000000/darth-vader.png');
+    padding: 10px 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+#characterList li {
+    transition: .5s;
+    margin-left: 50px;
+    line-height: 1.9;
+    z-index: 10;
+    transition: .5s;
+}
+
+#characterList li:hover {
+    transform: translateX(2%);
+}
+
+#MovieDetails {
+    position: absolute;
+    width: 50%;
+    left: 0%;
+    background-color: #c3c3c3;
+    z-index: 1;
+    transition: 2s;
+    color: #222;
+    opacity: 0.9;
+    overflow: auto;
+}
+
+#MovieDetails.active {
+    left: 50%;
+}
+
+#MovieDetails.active > #characterList {
+    opacity: 0.4;
+}
+
+#MovieDetails::-webkit-scrollbar, #characterList::-webkit-scrollbar {
+    width: 1em;
+}
+
+#MovieDetails::-webkit-scrollbar-track, #characterList::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+#MovieDetails::-webkit-scrollbar-thumb, #characterList::-webkit-scrollbar-thumb {
+    background-color: #333333;
+    outline: 1px solid slategrey;
+}
+
+.close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    width: 32px;
+    height: 32px;
+    opacity: 0.3;
+    background-color: #000;
+    border-radius: 50%;
+    transition: 1s;
+}
+
+.close:hover {
+    opacity: 0.6;
+    transform: rotate(180deg);
+}
+
+.close:before, .close:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 33px;
+    width: 2px;
+    background-color: #fff;
+}
+
+.close:before {
+    transform: rotate(45deg);
+}
+
+.close:after {
+    transform: rotate(-45deg);
+}
+
+.movie_poster {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.movie_poster img {
+    width: 40%;
+    min-width: 200px;
+    max-height: 370px;
+    text-align: center;
+}
+
+.movie_title {
+    font-size: 34px;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.movie_director {
+    font-weight: lighter;
+    font-style: italic;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.movie_crawl {
+    padding: 10px 0;
+    font-size: 18px;
+    line-height: 2;
+}
+
+@media screen and (max-width: 1024px) {
+    #container {
+        display: flex;
+        flex-direction: row;
+    }
+
+    #characterList, #MovieDetails {
+        width: 100%;
+    }
+
+    #characterList {
+        font-size: calc(22px + 0.9vw);
+    }
+
+    #MovieDetails {
+        top: 0%;
+        left: 0%;
+        margin-bottom: 30px;
+    }
+
+    #MovieDetails.active {
+        top: 100%;
+        left: 0%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .outDiv {
+        width: 95%;
+        transition: .5s;
+    }
+
+    #characterList {
+        font-size: calc(16px + 1.8vw);
+    }
+}
